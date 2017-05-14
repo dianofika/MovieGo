@@ -20,6 +20,7 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.adapter.SourceAda
 import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.model.Result;
 import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.model.SourcesResponse;
 import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.service.GsonGetRequest;
+import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.service.VolleySingleton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,7 +47,7 @@ public class NowPlayingFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        mAdapter = new SourceAdapter(this.getActivity().mList);
+        mAdapter = new SourceAdapter(this.getActivity(), mList);
         recyclerView.setAdapter(mAdapter);
 
         downloadDataSource();
@@ -71,7 +72,7 @@ public class NowPlayingFragment extends Fragment {
                         Log.e("FLOW", "onErrorResponse: ", error);
                     }
                 });
-        VolleySingleton.getInstance(this.getActivity()).addToRequestQuece(myRequest);
+        VolleySingleton.getInstance(this.getActivity()).addToRequestQueue(myRequest);
     }
 
 }

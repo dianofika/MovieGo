@@ -16,6 +16,7 @@ public class Favorite extends SugarRecord {
         return movieId;
     }
 
+
     public void setMovieId(int movieId) {
         this.movieId = movieId;
     }

@@ -22,14 +22,16 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.model.SourcesResp
 import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.service.GsonGetRequest;
 import id.sch.smktelkom_mlg.privateassignment.xirpl308.moviego.service.VolleySingleton;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NowPlayingFragment extends Fragment {
+public class ComingSoonFragment extends Fragment {
+
     ArrayList<Result> mList = new ArrayList<>();
     SourceAdapter mAdapter;
 
-    public NowPlayingFragment() {
+    public ComingSoonFragment() {
         // Required empty public constructor
     }
 
@@ -38,7 +40,7 @@ public class NowPlayingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_now_playing, container, false);
+        return inflater.inflate(R.layout.fragment_coming_soon, container, false);
     }
 
     @Override
@@ -54,7 +56,7 @@ public class NowPlayingFragment extends Fragment {
     }
 
     private void downloadDataSource() {
-        String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=cd5f46614e0754df6eb67248da7be0ed&language=en-US&page=1";
+        String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=cd5f46614e0754df6eb67248da7be0ed&language=en-US&page=1";
 
         GsonGetRequest<SourcesResponse> myRequest = new GsonGetRequest<SourcesResponse>
                 (url, SourcesResponse.class, null, new Response.Listener<SourcesResponse>() {
